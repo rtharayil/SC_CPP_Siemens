@@ -9,9 +9,9 @@ Buffer overflows occur when a program writes more data to a buffer (array, stack
 
 ### 🔹 **I. Classic Buffer Overflow (Stack-Based)**
 
-* **Description**: Overwriting stack variables including return address.
+* **Description**: Overwriting stack variables 
 * **Attack Type**: Stack smashing
-* **Result**: Redirects execution to attacker-controlled code.
+* **Result**: Modify critical variables
 
 **Example**:
 
