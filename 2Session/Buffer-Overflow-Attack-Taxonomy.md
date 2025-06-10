@@ -75,7 +75,7 @@ void write_anywhere(char* addr, char val) {
 
 ### 🔹 **V. ARC Injection (Altered Return Code)**
 
-* **Description**: Overwriting function return addresses or function pointers to redirect execution.
+* **Description**: Overwriting function return addresses 
 * **Attack Type**: Control flow hijacking
 * **Result**: Jump to shellcode or ROP chain.
 
@@ -166,4 +166,4 @@ memcpy(buf, src, user_input_len);  // Overflows buffer
 
 ---
 
-Would you like sample C/C++ code for labs or demonstrations for any of these categories (ARC, UAF, off-by-one, etc.)? I can also provide gdb-friendly test programs.
+
