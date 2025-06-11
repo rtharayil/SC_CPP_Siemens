@@ -220,7 +220,4 @@ Each part adds **warnings, security hardening, or optimizations**.
 
 ---
 
-Let me know if you want:
 
-* A **Makefile** with all these flags
-* A **test program** to demo each flag in action
