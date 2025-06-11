@@ -9,7 +9,7 @@ int main() {
 
     // User input simulating malicious payload
     //const char* user = "%497d<\x3c\xd3\xff\xbf<nops><shellcode>";
-    const char* user = "%497d  %x %x %x %x"
+    const char* user = "%497d  %x %x %x %x";
    
 
     // Safe use of format string with limit: %.400s ensures max 400 bytes copied
