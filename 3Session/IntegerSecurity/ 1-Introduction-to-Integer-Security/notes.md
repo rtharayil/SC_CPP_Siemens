@@ -9,6 +9,55 @@
 
 ---
 
+Here are the standard integer **limits** for `int`, `short`, and `unsigned int` as defined in `<limits.h>`:
+
+---
+
+### 📦 `int` (typically 32-bit on most systems)
+
+| Constant   | Value       |
+| ---------- | ----------- |
+| `INT_MAX`  | 2147483647  |
+| `INT_MIN`  | -2147483648 |
+| `UINT_MAX` | 4294967295  |
+
+---
+
+### 📏 `short` (typically 16-bit)
+
+| Constant    | Value  |
+| ----------- | ------ |
+| `SHRT_MAX`  | 32767  |
+| `SHRT_MIN`  | -32768 |
+| `USHRT_MAX` | 65535  |
+
+---
+
+### 🧮 `unsigned int` (typically 32-bit)
+
+| Constant   | Value        |
+| ---------- | ------------ |
+| `UINT_MAX` | 4294967295   |
+| *(no min)* | 0 (implicit) |
+
+
+
+If you want a quick test program to **print these limits**, here's a snippet:
+
+```c
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    printf("int:       [%d, %d]\n", INT_MIN, INT_MAX);
+    printf("unsigned:  [0, %u]\n", UINT_MAX);
+    printf("short:     [%d, %d]\n", SHRT_MIN, SHRT_MAX);
+    printf("ushort:    [0, %u]\n", USHRT_MAX);
+    return 0;
+}
+```
+
+
 ## 1. Integer Overflow and Underflow
 
 ### Concept
@@ -29,6 +78,19 @@ int main() {
     printf("After Overflow: %d\n", max); // wraps to INT_MIN
     return 0;
 }
+```
+```c
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    int min = INT_MIN;
+    printf("Min: %d\n", min);
+    min = min - 1;  // This causes integer underflow
+    printf("After Underflow: %d\n", min); // wraps to INT_MAX
+    return 0;
+}
+
 ```
 
 ### Hands-On Lab
@@ -169,38 +231,7 @@ memcpy(buf, src, alloc);
 
 ---
 
-## 5. Impact of Undefined Behavior in C/C++
 
-### Concept
-
-* Certain operations in C/C++ produce **undefined behavior**.
-* Compiler is free to optimize UB in unpredictable ways.
-
-### Example (C)
-
-```c
-#include <limits.h>
-#include <stdio.h>
-
-int main() {
-    int x = INT_MAX;
-    int y = x + 1;  // Undefined behavior
-    printf("%d\n", y);
-    return 0;
-}
-```
-
-### Hands-On Lab
-
-* Compile and run with:
-
-  ```bash
-  gcc -fsanitize=undefined -Wall -O0 ub_test.c -o ub_test
-  gcc -fsanitize=undefined -Wall -O2 ub_test.c -o ub_test_optimized
-  ```
-* Compare the output and behavior under different optimization levels.
-
----
 
 ## Quick Recap & Quiz
 
