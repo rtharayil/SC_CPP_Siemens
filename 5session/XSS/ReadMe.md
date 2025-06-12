@@ -5,7 +5,7 @@
 
 ```bash
 docker build -t cpp-xss-demo .
-docker run -p 8080:8080 cpp-xss-demo
+docker run -p 80XX:8080 cpp-xss-demo
 ```
 
 Then open:
