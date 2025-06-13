@@ -46,3 +46,4 @@ This sets ASLR to **full randomization**, which is the default on most modern Li
 ---
 
 
+docker run --rm -p 3000:3000 bkimminich/juice-shop
